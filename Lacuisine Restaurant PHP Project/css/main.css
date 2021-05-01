@@ -1,0 +1,504 @@
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Top bar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*pinkish white #c9c1ac*/
+/*light shocking pink #d3325f*/
+
+.info{
+    background: #c9c1ac;
+}
+
+body{
+    font-family: 'Mr Dafoe', cursive;
+    color: azure;
+    background: url(../img/eat.jpg)center/cover fixed no-repeat;
+}
+
+.primary-color{
+    color: #d3325f;
+}
+
+.info h2{
+    word-spacing: 0.6rem;
+}
+
+/*Icons Color*/
+
+.fa-facebook{
+    color: #3b5998;
+    transition: color 1s ease-in-out;
+}
+
+.fa-facebook:hover{
+    color: green;
+}
+
+.fa-youtube{
+    color: crimson;
+    transition: color 1s ease-in-out;
+}
+
+.fa-youtube:hover{
+    color: green;
+}
+
+.fa-twitter{
+    color: deepskyblue;
+    transition: color 1s ease-in-out;
+}
+
+.fa-twitter:hover{
+    color: green;
+}
+
+.fa-instagram{
+    color: crimson;
+    transition: color 1s ease-in-out;
+}
+
+.fa-instagram:hover{
+    color: green;
+}
+/*Icons Color End*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Header Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#header{
+    min-height: calc(100vh - 94px);
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../img/1.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.height-90{
+    min-height: calc(100vh - 94px);    
+}
+
+/*!!!!!!!!!!!!!Lacuisine Retaurant Animation!!!!!!!!!!!!!!*/
+
+.banner h1{
+    border-top: 8px dotted pink;
+    border-bottom: 8px dotted pink;
+    animation: fromleft;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fromleft{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateX(30px);
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+/*!!!!!!!!!!!!!End of Lacuisine Retaurant Animation!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!Order Now Button!!!!!!!!!!!!!!*/
+
+
+.main-btn{
+    color: coral;
+    font-size: 2rem;
+    border: 3px solid coral;
+    border-radius: 20px;
+    transition: all 1s ease-in-out;
+}
+
+.main-btn:hover{
+    color: darkred;
+    border: 3px solid pink;
+    background: pink;
+}
+
+.la-btn{
+    animation: fromright;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;    
+}
+
+@keyframes fromright{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateX(-30px);
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+/*!!!!!!!!!!!End of Order Now Button!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!Down Button!!!!!!!!!!!!!!*/
+
+.header-link{
+    display: inline-block;
+    position: absolute;
+    bottom: 5%;
+    left: 48.5%;
+    background: #c9c1ac;
+    border-radius: 10px;
+    transition: all 2s ease;
+    animation: frombottom;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.header-link:hover{
+    color: black;
+    background: pink;
+}
+
+@keyframes frombottom{
+    0%{
+        transform: translateY(-10px);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(-10px);
+    }
+}
+
+/*!!!!!!!!!!!End of Down Button!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!End of Header Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!Navbar!!!!!!!!!!*/
+
+.navbar{
+    background: #c9c1ac;
+    padding: 20px 20px;
+    transition: all 1s ease;
+}
+
+.navbar-background{
+    padding: 5px 20px;
+}
+
+.navbar-brand{
+    font-size: 30px;
+    transition: all 1s ease;
+}
+
+.navbar-brand:hover{
+    color: darkblue;
+}
+
+.nav-link{
+    color: #d3325f;
+    text-decoration: none;
+    transition: all 2s ease;
+    font-size: 23px;
+}
+
+.nav-link:hover{
+    color: darkblue;
+}
+
+.nav-btn{
+    background: transparent;
+    color: #d3325f;
+    border: 3px solid #d3325f;
+    border-radius: 20px;
+    font-size: 23px;
+    transition: all 1s ease;
+}
+
+.nav-btn:hover{
+    background: lightgreen;
+    color: darkred;
+    border: 3px solid white;
+    transform: rotate(10deg) scale(1.2);      
+}
+
+.toggler-btn{
+    border: 3px solid #d3325f;
+    padding: 5px;
+    transition: all 1s ease;
+}
+
+.bar{
+    width: 30px;
+    height: 3px;
+    margin: 5px;
+    background: #d3325f; 
+    transition: all 0.5s ease;   
+}
+
+.change .bar1{
+    transform: rotate(-45deg) translate(-5px,6px); 
+}
+
+.change .bar2{
+    opacity: 0;
+}
+
+.change .bar3{
+    transform: rotate(45deg) translate(-5px,-8px); 
+}
+
+/*!!!!!!!End of Navbar!!!!!!!green
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Start Menu Items!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!Menu Item Image!!!!!!!!!!!!!!*/
+
+.item-container{
+    position: relative;
+/*For The Link*/
+    overflow: hidden;
+    background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+    transition: all 2s ease;
+}
+
+.item-img{
+    transition: all 2s ease;
+}
+
+.item-container:hover .item-img{
+    transform: scale(1.2);
+    opacity: 0.5;
+}
+
+.item-container:hover{
+    outline: 7px solid #d3325f;
+    outline-offset: 0.6rem;
+}
+
+/*!!!!!!!!!!!End of Menu Item Image!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!Link of Menu Item Image!!!!!!!!!!!!!*/
+
+.item-link{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: coral;
+    font-size: 2rem;
+    border-top: 3px solid coral;
+    border-bottom: 3px solid coral;
+    border-radius: 20px;
+    transition: all 2s ease;
+    opacity: 0;
+}
+
+.item-container:hover .item-link{
+    opacity: 1;
+}
+
+.item-link:hover{
+    color: darkred;
+    border: 3px solid pink;
+    border-radius: 20px;
+    background: pink;
+    color: darkred;
+}
+
+
+
+/*!!!!!!!!!!!End of Link of Menu Item Image!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!End of Menu Items!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!Start of Menu Products!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#menu{
+    background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),url(../img/wheat.jpg)center/cover fixed no-repeat;
+}
+
+.special{
+    border: 3px solid #d3325f;
+    position: relative;
+}
+
+.special-text{
+    position: absolute;
+    top: 0;
+    right: 10%;
+    background: #d3325f;
+    padding: 0 0.4rem;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!End of Menu Products!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!Start of About Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.about-pictures{
+    position: relative;
+}
+
+.about-image{
+    margin-top: 70px;
+    margin-left: 40px;
+    position: absolute;
+    width: 200px;
+    transition: all 2s ease;
+    opacity: 0.9;
+}
+
+.img-1{
+    left: 0%;
+    top: 0%;
+}
+
+.img-2{
+    left: 25%;
+    top: 20%;
+    z-index: 10;
+}
+
+.img-3{
+    left: 50%;
+    top: 40%;
+}
+
+.img-4{
+    left: 50%;
+    top: 0%;
+}
+
+.img-5{
+    left: 0%;
+    top: 40%;
+}
+
+.about-image:hover{
+    outline: 5px solid #d3325f;
+    outline-offset: 0.2rem;
+    transform: scale(2) rotate(20deg);
+    z-index: 30;
+    opacity: 1;
+}
+
+.about-pictures:hover .about-image:not(:hover){
+    opacity: 0.5;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!End of About Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Review Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.review-img{
+    width: 200px;
+    height: 200px;
+}
+
+.testimonial-color{
+    color: darkcyan;
+}
+
+.review-item{
+    background: rgba(255,255,255,0.7);
+    clip-path: polygon(5% 0,100% 0,90% 100%,0 100%);
+}
+
+.text-new{
+    font-size: 18pt;
+    color: #d3325f;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!End of Review Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Team Member Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.head-text{
+    font-family: cursive;
+    font-size: 22pt;
+    color: darkcyan;
+}
+
+.new-text{
+    font-family: monospace;
+    font-style: oblique;
+    font-size: 15pt;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!End of Team Member Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Contact Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.height{
+    min-height: 71.5vh;
+}
+
+#contact .card{
+    background: rgba(0, 0, 0, 0.4);
+    transition: all 2s ease;
+}
+
+#contact .card:hover{
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#contact .card-header{
+    color: #d3325f;
+}
+
+#contact .input-group-text{
+    background: #d3325f;
+    border-color: #d3325f;
+    color: #242424;
+}
+
+#contact .card-input{
+    color: #606060;
+}
+
+#contact .card-input::placeholder{
+    color: #606060;
+}
+
+.contact-btn{
+    color: coral;
+    border-color: coral;
+    border: 3px solid coral;
+    border-radius: 20px;
+    background: transparent;
+    transition: all 2s ease-in-out;
+}
+
+.contact-btn:hover{
+    background: pink;
+    color: darkred;
+    border: 3px solid pink;
+    border-radius: 20px;
+    border-color: pink;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!End of Contact Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!footer Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#back-to-top{
+    background: white;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.scrollTop{
+    position: fixed;
+    bottom: 70px;
+    right: 10px;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!footer Section!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/

@@ -1,0 +1,319 @@
+
+mysql> show tables;
++---------------------+
+| Tables_in_lacuisine |
++---------------------+
+| category            |
+| customer            |
+| delivery            |
+| food                |
+| food_image          |
+| migrations          |
+| order_detail        |
+| orders              |
+| payment             |
+| user                |
++---------------------+
+10 rows in set (0.01 sec)
+
+
+mysql> describe customer;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| CNIC  | varchar(255) | NO   | PRI | NULL    |       |
+| FName | varchar(255) | NO   |     | NULL    |       |
+| email | varchar(255) | NO   |     | NULL    |       |
+| phone | varchar(255) | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe user;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| ID       | varchar(255) | NO   | PRI | NULL    |       |
+| username | varchar(255) | NO   |     | NULL    |       |
+| password | varchar(255) | NO   | UNI | NULL    |       |
+| email    | varchar(255) | NO   |     | NULL    |       |
+| phone    | varchar(255) | NO   |     | NULL    |       |
+| address  | varchar(255) | NO   |     | NULL    |       |
+| role     | varchar(255) | NO   |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> describe orders;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| OID      | varchar(255) | NO   | PRI | NULL    |       |
+| CNIC     | varchar(255) | NO   | MUL | NULL    |       |
+| Ostatus  | varchar(255) | NO   |     | NULL    |       |
+| ODate    | date         | NO   |     | NULL    |       |
+| Token_No | varchar(255) | NO   |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> describe food;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| FID   | varchar(255) | NO   | PRI | NULL    |       |
+| CID   | varchar(255) | NO   | MUL | NULL    |       |
+| Fname | varchar(255) | NO   |     | NULL    |       |
+| price | varchar(255) | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe food_image;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| IID   | varchar(255) | NO   | PRI | NULL    |       |
+| FID   | varchar(255) | NO   | MUL | NULL    |       |
+| Iname | blob         | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> describe category;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| CID   | varchar(255) | NO   | PRI | NULL    |       |
+| CName | varchar(255) | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> describe delivery;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| DID   | varchar(255) | NO   | PRI | NULL    |       |
+| OID   | varchar(255) | NO   | MUL | NULL    |       |
+| ATime | time         | NO   |     | NULL    |       |
+| DTime | time         | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe payment;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| PID     | varchar(255) | NO   | PRI | NULL    |       |
+| OID     | varchar(255) | NO   | MUL | NULL    |       |
+| FPrice  | varchar(255) | NO   |     | NULL    |       |
+| DCharge | varchar(255) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+mysql> show create table customer;
++----------+--------------------------------------------------------------------------------------------
+--------------------------------+
+| Table    | Create Table
+                                |
++----------+--------------------------------------------------------------------------------------------
+--------------------------------+
+| customer | CREATE TABLE `customer` (
+  `CNIC` varchar(255) NOT NULL,
+  `FName` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  PRIMARY KEY (`CNIC`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++----------+--------------------------------------------------------------------------------------------
+--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> show create table orders;
++--------+----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| Table  | Create Table
+
++--------+----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| orders | CREATE TABLE `orders` (
+  `OID` varchar(255) NOT NULL,
+  `CNIC` varchar(255) NOT NULL,
+  `Ostatus` varchar(255) NOT NULL,
+  `ODate` date NOT NULL,
+  `Token_No` varchar(255) NOT NULL,
+  PRIMARY KEY (`OID`),
+  KEY `CNIC` (`CNIC`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`CNIC`) REFERENCES `customer` (`CNIC`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++--------+----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+1 row in set (0.00 sec)
+
+mysql> show create table food;
++-------+-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| Table | Create Table
+
++-------+-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| food  | CREATE TABLE `food` (
+  `FID` varchar(255) NOT NULL,
+  `CID` varchar(255) NOT NULL,
+  `Fname` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  PRIMARY KEY (`FID`),
+  KEY `CID` (`CID`),
+  CONSTRAINT `food_ibfk_1` FOREIGN KEY (`CID`) REFERENCES `category` (`CID`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++-------+-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+1 row in set (0.00 sec)
+
+mysql> show create table food_image;
++------------+------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| Table      | Create Table
+
++------------+------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| food_image | CREATE TABLE `food_image` (
+  `IID` varchar(255) NOT NULL,
+  `FID` varchar(255) NOT NULL,
+  `Iname` blob NOT NULL,
+  PRIMARY KEY (`IID`),
+  KEY `FID` (`FID`),
+  CONSTRAINT `food_image_ibfk_1` FOREIGN KEY (`FID`) REFERENCES `food` (`FID`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++------------+------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+1 row in set (0.00 sec)
+
+mysql> show create table category;
++----------+--------------------------------------------------------------------------------------------
+| Table    | Create Table
++----------+--------------------------------------------------------------------------------------------
+| category | CREATE TABLE `category` (
+  `CID` varchar(255) NOT NULL,
+  `CName` varchar(255) NOT NULL,
+  PRIMARY KEY (`CID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++----------+--------------------------------------------------------------------------------------------
+1 row in set (0.00 sec)
+
+mysql> show create table payment;
++---------+---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| Table   | Create Table
+
++---------+---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| payment | CREATE TABLE `payment` (
+  `PID` varchar(255) NOT NULL,
+  `OID` varchar(255) NOT NULL,
+  `FPrice` varchar(255) NOT NULL,
+  `DCharge` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`PID`),
+  KEY `OID` (`OID`),
+  CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`OID`) REFERENCES `orders` (`OID`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++---------+---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+1 row in set (0.00 sec)
+
+mysql> show create table delivery;
++----------+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| Table    | Create Table
+
++----------+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| delivery | CREATE TABLE `delivery` (
+  `DID` varchar(255) NOT NULL,
+  `OID` varchar(255) NOT NULL,
+  `ATime` time NOT NULL,
+  `DTime` time NOT NULL,
+  PRIMARY KEY (`DID`),
+  KEY `OID` (`OID`),
+  CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`OID`) REFERENCES `orders` (`OID`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++----------+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+1 row in set (0.00 sec)
+
+mysql> show create table user;
++-------+-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| Table | Create Table
+
++-------+-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+| user  | CREATE TABLE `user` (
+  `ID` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `password` (`password`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++-------+-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+1 row in set (0.00 sec)
+
+
+mysql> insert into user values (1210157236327,'Muhammad Asif Ayub','pakistan1947','asifayub836@gmail.com',03489155239,'Madni town shah alam abad chowk dera ismail khan','Admin');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from user;
++---------------+--------------------+--------------+-----------------------+------------+--------------------------------------------------+-------+
+| ID            | username           | password     | email                 | phone      | address                                          | role  |
++---------------+--------------------+--------------+-----------------------+------------+--------------------------------------------------+-------+
+| 1210157236327 | Muhammad Asif Ayub | pakistan1947 | asifayub836@gmail.com | 3489155239 | Madni town shah alam abad chowk dera ismail khan | Admin |
++---------------+--------------------+--------------+-----------------------+------------+--------------------------------------------------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from customer;
+Empty set (0.01 sec)
+
+mysql> describe customer;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| CNIC  | varchar(255) | NO   | PRI | NULL    |       |
+| FName | varchar(255) | NO   |     | NULL    |       |
+| email | varchar(255) | NO   |     | NULL    |       |
+| phone | varchar(255) | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into customer values (121012376359,'Assad Ullah Khan','assadullahkhan700@gmail.com',03494983200);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from customer;
++--------------+------------------+-----------------------------+------------+
+| CNIC         | FName            | email                       | phone      |
++--------------+------------------+-----------------------------+------------+
+| 121012376359 | Assad Ullah Khan | assadullahkhan700@gmail.com | 3494983200 |
++--------------+------------------+-----------------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from user;
++---------------+--------------------+--------------+-----------------------+------------+--------------------------------------------------+-------+
+| ID            | username           | password     | email                 | phone      | address                                          | role  |
++---------------+--------------------+--------------+-----------------------+------------+--------------------------------------------------+-------+
+| 1210157236327 | Muhammad Asif Ayub | pakistan1947 | asifayub836@gmail.com | 3489155239 | Madni town shah alam abad chowk dera ismail khan | Admin |
++---------------+--------------------+--------------+-----------------------+------------+--------------------------------------------------+-------+
+1 row in set (0.02 sec)
+
+mysql> describe food;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| FID   | varchar(255) | NO   | PRI | NULL    |       |
+| CID   | varchar(255) | NO   | MUL | NULL    |       |
+| Fname | varchar(255) | NO   |     | NULL    |       |
+| price | varchar(255) | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
