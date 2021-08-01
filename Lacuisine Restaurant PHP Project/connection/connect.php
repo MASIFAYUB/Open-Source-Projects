@@ -7,7 +7,7 @@ $password = ""; //password
 $dbname = "lacuisine";  //database
 
 // Create connection
-$db = mysqli_connect($servername, $username, $password, $dbname); // connecting 
+$db = mysqli_connect($servername, $username, $password, $dbname, "3308"); // connecting 
 
 // Check connection
 if (!$db) 
