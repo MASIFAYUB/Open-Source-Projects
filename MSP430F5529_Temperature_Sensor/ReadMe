@@ -1,0 +1,4 @@
+Using the MSP430F5529 microcontrollers ADC’s internal temperature sensor, 
+which is placed on channel 10 of ADC. Getting temperature samples after 
+specific intervals from ADC, converting them into digital values and displaying 
+them on any serial terminal using UART with a Baud rate of 115200, no parity and one stop bit.
