@@ -7,5 +7,8 @@ https://www.youtube.com/watch?v=smmKiv-TloI&ab_channel=Innovertz
 (2) Hospital Management System in C++ | Data Structure & Algorithm | 2021: 
 https://www.youtube.com/watch?v=tisLdzwkA18
 
-(2) DTMF - Dual Tone Multi-Frequency Open Source Project: 
+(3) DTMF - Dual Tone Multi-Frequency Open Source Project: 
 https://www.youtube.com/watch?v=xJoHayakEMU&ab_channel=Innovertz
+
+(4) How To Use MSP430F5529 On-Board Temperature Sensor: 
+https://youtu.be/S6XhtBqP10E
